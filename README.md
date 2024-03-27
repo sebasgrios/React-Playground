@@ -1,2 +1,2 @@
 # React-Playground
-Repository of miniproject in React
+Repository of miniprojects in React
