@@ -1,0 +1,6 @@
+{
+    "home": {
+        "message": "Edit {{file}} and save to reload.",
+        "link": "Learn React"
+    }
+}
