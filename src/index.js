@@ -8,19 +8,30 @@ import global_en from './translations/en/global.json';
 import global_es from './translations/es/global.json';
 import i18next from 'i18next';
 import { I18nextProvider } from 'react-i18next';
+import LanguageDetector from 'i18next-browser-languagedetector';
 
-i18next.init({
+i18next
+.use(LanguageDetector)
+.init({
+  supportedLngs: ['en-GB', 'es-ES'],
   interpolation: { escapeValue: false },
-  lng: 'en',
+  fallbackLng: 'en-GB',
   resources: {
-    en: {
+    'en-GB': {
       global: global_en
     },
-    es: {
+    'es-ES': {
       global: global_es
     },
   }
-})
+});
+
+i18next.on('languageChanged',(lng) => {
+  console.log('changed to -> ', lng);
+  document.documentElement.setAttribute('lang', lng);
+});
+
+document.documentElement.lang = i18next.language;
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

@@ -2,9 +2,14 @@ import logo from './logo.svg';
 import './App.css';
 import LanguageSelector from './components/LanguageSelector/LanguageSelector';
 import { useTranslation } from 'react-i18next';
+import { useEffect } from 'react';
 
 function App() {
   const { t } = useTranslation('global');
+
+  useEffect(() => {
+    document.title = t('app.title');
+  }, [t]);
 
   return (
     <div className="App">

@@ -1,4 +1,7 @@
 {
+    "app": {
+        "title": "Aplicación de React"
+    },
     "home": {
         "message": "Edita {{file}} y guarda para recargar.",
         "link": "Aprende React"
