@@ -13,14 +13,15 @@ const DarkMode = () => {
         localStorage.setItem('theme', 'light');
     }
 
-    const selectedTheme = localStorage.getItem('theme');
-
-    if (selectedTheme === 'dark') setDarkMode();
-
     const toggleTheme = e => {
         if (e.target.checked) setDarkMode();
         else setLightMode();
     };
+
+    const selectedTheme = localStorage.getItem('theme');
+    const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+    if (systemTheme || selectedTheme === 'dark') setDarkMode();
 
     return (
         <div className='dark_mode'>
